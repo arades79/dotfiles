@@ -1,5 +1,5 @@
+# setup atuin terminal history tui
 if status is-interactive
-        if type -q atuin
-                atuin init fish | source
-        end
+    [ "$(command -v atuin)" ] && eval "$(atuin init fish)"
 end
+

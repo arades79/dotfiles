@@ -1,6 +1,4 @@
+# setup fzf fuzzy finding tui
 if status is-interactive
-        if type -q fzf
-        	# Set up fzf key bindings
-		fzf --fish | source
-	end
+    [ "$(command -v fzf)" ] && eval "$(fzf --fish)"
 end
