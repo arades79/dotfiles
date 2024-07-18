@@ -20,11 +20,6 @@ end
 if type -q bat
 	alias cat "bat"
 end
-
-# better find command
-if type -q fd
-	alias find "fd"
-end
 	
 # ls aliases with eza
 if [ "$(command -v eza)" ]
