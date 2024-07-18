@@ -1,0 +1,8 @@
+# add rust utilities and variables to environment
+. "$HOME/.cargo/env"
+
+# start and export GPG agent
+gpg-connect-agent /bye
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+export GPG_TTY=$(tty)
+

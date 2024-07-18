@@ -1,0 +1,46 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+
+### user aliases and tui setups ###
+
+# cat aliases
+if [ "$(command -v bat)" ]; then
+    alias cat='bat'
+fi
+
+# ls aliases
+if [ "$(command -v eza)" ]; then
+    alias ll='eza -alhH --icons=auto --group-directories-first'
+    alias l.='eza -d .*'
+    alias ls='eza'
+    alias l1='eza -1'
+fi
+
+# ugrep for grep
+if [ "$(command -v ug)" ]; then
+    alias grep='ug'
+    alias egrep='ug -E'
+    alias fgrep='ug -F'
+    alias xzgrep='ug -z'
+    alias xzegrep='ug -zE'
+    alias xzfgrep='ug -zF'
+fi
+
+#shellcheck disable=SC1091
+. /usr/share/bash-prexec
+[ "$(command -v atuin)" ] && eval "$(atuin init bash)"
+[ "$(command -v zoxide)" ] && eval "$(zoxide init --cmd cd bash)"
