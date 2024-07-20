@@ -46,6 +46,8 @@ test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish ; and source
 test -e $HOME/.cargo/env.fish; and source "$HOME/.cargo/env.fish"
 
 # GPG+SSH agent
-gpg-connect-agent /bye
-set -gx SSH_AUTH_SOCK $(gpgconf --list-dirs agent-ssh-socket)
-set -gx GPG_TTY $(tty)
+if test -d ~/.gnupg
+    gpg-connect-agent /bye
+    set -gx SSH_AUTH_SOCK $(gpgconf --list-dirs agent-ssh-socket)
+    set -gx GPG_TTY $(tty)
+end
