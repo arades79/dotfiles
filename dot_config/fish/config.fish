@@ -10,7 +10,7 @@ if status is-interactive
     [ "$(command -v fzf)" ] && eval "$(fzf --fish)"
 
     # Starship prompt
-	[ "$(command -v starship)" ] && source (/usr/bin/starship init fish --print-full-init | psub)
+	[ "$(command -v starship)" ] && source (starship init fish --print-full-init | psub)
 		
     # activate zoxide smart cd command replacement tui
     [ "$(command -v zoxide)" ] && eval "$(zoxide init --cmd cd fish)"

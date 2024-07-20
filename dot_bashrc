@@ -41,6 +41,6 @@ if [ "$(command -v ug)" ]; then
 fi
 
 #shellcheck disable=SC1091
-. /usr/share/bash-prexec
+#. /usr/share/bash-prexec
 [ "$(command -v atuin)" ] && eval "$(atuin init bash)"
 [ "$(command -v zoxide)" ] && eval "$(zoxide init --cmd cd bash)"
